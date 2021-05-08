@@ -21,11 +21,10 @@ app.use('/', (req, res) => {
     res.send('Hello to Movie API');
 });
 
-//const CONNECTION_URL = 'mongodb+srv://hqhuy:hqhuy@cluster0.lsklh.mongodb.net/movie-rating-app?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => app.listen(PORT, () => console.log('Server running on port: ' + PORT)))
+.then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
 .catch((error) => console.log(error.message));
 
 mongoose.set('useFindAndModify', false);
